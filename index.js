@@ -11,7 +11,13 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+const cors = require("cors");
+const corsOptions = {
+    origin: "*",
+    credentials: true,
+    optionSuccessRate: 200,
+};
+app.use(cors(corsOptions));
 
 // Job routes
 app.use("/jobs", jobRoutes);
