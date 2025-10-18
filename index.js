@@ -11,11 +11,10 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-const cors = require("cors");
 const corsOptions = {
-    origin: "*",
-    credentials: true,
-    optionSuccessRate: 200,
+  origin: ["http://localhost:5173", "https://intern-house.vercel.app"],
+  credentials: true,
+  optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
