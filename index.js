@@ -12,7 +12,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://intern-house.vercel.app"],
+  origin: "*",
   credentials: true,
   optionsSuccessStatus: 200,
 };

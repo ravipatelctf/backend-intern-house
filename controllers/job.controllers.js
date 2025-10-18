@@ -11,6 +11,7 @@ const createJob = async (req, res) => {
         await newJob.save();
         res.status(201).json({message: "Job created successfully.", data: newJob});
     } catch (error) {
+        console.error("Failed to create job", error);
         res.status(500).json({message: "Failed to create job", error})
     }
 }
@@ -24,6 +25,7 @@ const getAllJobs = async (req, res) => {
         }
         res.status(200).json({message: "Data fetched successfully.", data: allJobs});
     } catch (error) {
+        console.error("Failed to fetch all jobs", error);
         res.status(500).json({message: "Failed to fetch all jobs.", error});
     }
 }
@@ -39,6 +41,7 @@ const getJobById = async (req, res) => {
         }
         res.status(200).json({message: "Data fetched successfully", data: targetJob});
     } catch (error) {
+        console.error("Failed to fetch target job", error);
         res.status(500).json({message: "Failed to fetch target job.", error});
     }
 }
@@ -52,7 +55,8 @@ const deleteJobById = async (req, res) => {
         }
         res.status(200).json({message: "Job deleted successfully", data: deletedJob});
     } catch (error) {
-        res.status(500).json({message: "Failed to delete taregt job.", error});
+        console.error("Failed to delete target job", error);
+        res.status(500).json({message: "Failed to delete target job.", error});
     }
 }
 
